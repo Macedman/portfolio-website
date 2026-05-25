@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import {
   LucideAngularModule,
-  Github,
-  Linkedin,
-  Menu
+  ArrowDownToLine,
+  Menu,
+  X
 } from 'lucide-angular';
-
 
 @Component({
   selector: 'app-navbar',
@@ -14,9 +13,26 @@ import {
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-
-  readonly Github = Github;
-  readonly Linkedin = Linkedin;
+  readonly download = ArrowDownToLine;
   readonly Menu = Menu;
+  readonly X = X;
 
+  readonly menuOpen = signal(false);
+
+  readonly navLinks = [
+    { href: '#home', label: 'Home' },
+    { href: '#about', label: 'About' },
+    { href: '#projects', label: 'Projects' },
+    { href: '#skills', label: 'Skills' },
+    { href: '#experience', label: 'Experience' },
+    { href: '#contact', label: 'Contact' }
+  ];
+
+  toggleMenu(): void {
+    this.menuOpen.update((open) => !open);
+  }
+
+  closeMenu(): void {
+    this.menuOpen.set(false);
+  }
 }

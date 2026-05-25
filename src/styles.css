@@ -1,7 +1,9 @@
 @import "tailwindcss";
+@import 'ngx-toastr/toastr';
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
 }
 
 body {

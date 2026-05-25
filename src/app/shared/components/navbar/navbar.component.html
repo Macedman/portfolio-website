@@ -1,109 +1,86 @@
 <nav
   class="fixed top-0 left-0 z-50 w-full border-b border-white/10 bg-[#070B14]/80 backdrop-blur-xl"
 >
-  <div
-    class="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-10"
-  >
-    <!-- Logo -->
+  <div class="flex h-20 w-full items-center justify-between px-6 lg:px-10">
     <a
-      href="#"
+      href="#home"
       class="group flex items-center gap-3 transition-all duration-300"
+      (click)="closeMenu()"
     >
       <div
         class="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 to-blue-500 shadow-lg shadow-violet-500/20 transition-all duration-300 group-hover:scale-105"
       >
-        <span class="text-sm font-bold tracking-widest text-white">
-          EC
-        </span>
+        <span class="text-sm font-bold tracking-widest text-white">EC</span>
       </div>
 
       <div class="hidden sm:block">
-        <h1 class="text-sm font-semibold tracking-wide text-white">
-          EC Maceda
-        </h1>
-
-        <p class="text-xs text-slate-400">
-          Angular Developer
-        </p>
+        <span class="text-sm font-semibold tracking-wide text-white">EC Maceda</span>
       </div>
     </a>
 
-    <!-- Desktop Nav -->
     <div class="hidden items-center gap-8 md:flex">
-      <a
-        href="#projects"
-        class="text-sm font-medium text-slate-300 transition hover:text-violet-400"
-      >
-        Projects
-      </a>
-
-      <a
-        href="#skills"
-        class="text-sm font-medium text-slate-300 transition hover:text-violet-400"
-      >
-        Skills
-      </a>
-
-      <a
-        href="#experience"
-        class="text-sm font-medium text-slate-300 transition hover:text-violet-400"
-      >
-        Experience
-      </a>
-
-      <a
-        href="#contact"
-        class="text-sm font-medium text-slate-300 transition hover:text-violet-400"
-      >
-        Contact
-      </a>
+      @for (link of navLinks; track link.href) {
+        <a
+          [href]="link.href"
+          class="text-sm font-medium text-slate-300 transition hover:text-violet-400"
+        >
+          {{ link.label }}
+        </a>
+      }
     </div>
 
-    <!-- Right Actions -->
-    <div class="flex items-center gap-4">
-      <!-- GitHub -->
+    <div class="flex items-center gap-3 sm:gap-4">
       <a
-        href="#"
-        class="hidden rounded-xl border border-white/10 bg-white/5 p-2.5 text-slate-300 transition hover:border-violet-500/40 hover:bg-violet-500/10 hover:text-violet-400 md:flex"
+        href="/Eugene Clint Maceda - Angular Developer.pdf"
+        download="Eugene Clint Maceda - Angular Developer.pdf"
+        class="hidden items-center gap-2 rounded-xl bg-gradient-to-r from-violet-500 to-blue-500 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-violet-500/20 transition-all duration-300 hover:scale-105 hover:shadow-violet-500/40 sm:inline-flex lg:px-5"
       >
-        <lucide-angular
-          [img]="Github"
-          class="h-5 w-5 text-white">
-        </lucide-angular>
+        <span class="hidden lg:inline">Download CV</span>
+        <span class="lg:hidden">CV</span>
+        <lucide-angular [img]="download" class="h-5 w-5 text-white" />
       </a>
 
-      <!-- LinkedIn -->
-      <a
-        href="#"
-        class="hidden rounded-xl border border-white/10 bg-white/5 p-2.5 text-slate-300 transition hover:border-violet-500/40 hover:bg-violet-500/10 hover:text-violet-400 md:flex"
-      >
-        <lucide-angular
-          [img]="Linkedin"
-          class="h-5 w-5 text-white">
-        </lucide-angular>
-      </a>
-
-      <!-- CTA Button -->
-      <a
-        href="#contact"
-        class="rounded-xl bg-gradient-to-r from-violet-500 to-blue-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-violet-500/20 transition-all duration-300 hover:scale-105 hover:shadow-violet-500/40"
-      >
-        Download CV
-      </a>
-
-      <!-- Mobile Menu -->
       <button
+        type="button"
         class="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-300 transition hover:bg-white/10 md:hidden"
+        [attr.aria-expanded]="menuOpen()"
+        aria-controls="mobile-nav"
+        aria-label="Toggle navigation menu"
+        (click)="toggleMenu()"
       >
         <lucide-angular
-          [img]="Menu"
-          class="h-5 w-5 text-white">
-        </lucide-angular>
+          [img]="menuOpen() ? X : Menu"
+          class="h-5 w-5 text-white"
+        />
       </button>
     </div>
   </div>
-</nav>
 
-<br>
-<br>
-<br> 
+  @if (menuOpen()) {
+    <div
+      id="mobile-nav"
+      class="border-t border-white/10 bg-[#070B14]/95 px-6 py-4 backdrop-blur-xl md:hidden"
+    >
+      <div class="flex flex-col gap-1">
+        @for (link of navLinks; track link.href) {
+          <a
+            [href]="link.href"
+            class="rounded-lg px-3 py-3 text-sm font-medium text-slate-300 transition hover:bg-white/5 hover:text-violet-400"
+            (click)="closeMenu()"
+          >
+            {{ link.label }}
+          </a>
+        }
+        <a
+          href="/Eugene Clint Maceda - Angular Developer.pdf"
+          download="Eugene Clint Maceda - Angular Developer.pdf"
+          class="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-500 to-blue-500 px-5 py-3 text-sm font-semibold text-white"
+          (click)="closeMenu()"
+        >
+          Download CV
+          <lucide-angular [img]="download" class="h-5 w-5 text-white" />
+        </a>
+      </div>
+    </div>
+  }
+</nav>

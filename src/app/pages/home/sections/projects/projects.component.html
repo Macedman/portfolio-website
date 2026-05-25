@@ -1,1 +1,9 @@
-<p>projects works!</p>
+<section id="projects" class="mx-4 my-6 border border-white/10 bg-[#070B14]/80 p-4 text-white backdrop-blur-xl sm:mx-5 sm:my-8 sm:p-5">
+    <p class="text-xs font-semibold uppercase tracking-widest text-slate-400 sm:text-sm">Featured work</p>
+    <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Projects I've built</h2>
+    <div class="mt-2 grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 xl:grid-cols-3 xl:gap-10">
+        @for (project of projects; track project.name) {
+            <app-project-card [project]="project"></app-project-card>
+        }
+    </div>
+</section>

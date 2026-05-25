@@ -1,1 +1,94 @@
-<p>about works!</p>
+<section
+  id="about"
+  class="relative mx-4 my-6 overflow-hidden rounded-lg border border-white/10 bg-[#070B14]/80 p-6 text-white backdrop-blur-xl sm:mx-5 sm:my-8 sm:p-8"
+  style="background-image: linear-gradient(rgba(7,11,20,0.8), rgba(7,11,20,0.8)), linear-gradient(135deg, rgba(147,112,219,0.1), rgba(168,85,247,0.05))"
+>
+  <div class="mt-2 flex flex-col gap-10 md:flex-row md:items-center md:gap-8">
+    <div class="w-full md:w-1/3">
+      <p class="text-xs font-semibold uppercase tracking-widest text-slate-400 sm:text-sm">About Me</p>
+      <h2 class="mt-2 text-2xl font-bold tracking-tight bg-gradient-to-r from-violet-400 via-violet-300 to-violet-500 bg-clip-text text-transparent sm:text-3xl">
+        A bit about me
+      </h2>
+      <p class="mt-4 max-w-sm text-sm leading-relaxed text-slate-300 sm:text-base">
+        I'm a passionate software developer who enjoys turning ideas into scalable, beautiful web applications.
+        I love solving problems, learning new technologies, and building products that make a real impact.
+      </p>
+      <p class="mt-5 max-w-sm text-sm leading-relaxed text-slate-300 sm:text-base">
+        I focus on clean, responsive Angular experiences, performance-first front-end architecture, and working closely
+        with designers and product teams to ship polished solutions.
+      </p>
+    </div>
+
+    <div class="flex w-full items-center justify-center md:w-1/3">
+      <div class="relative flex w-full max-w-sm justify-center">
+        <div
+          class="about-glow absolute h-64 w-64 rounded-full bg-gradient-to-br from-violet-600/30 via-violet-500/20 to-transparent blur-[100px] sm:h-80 sm:w-80 md:h-[500px] md:w-[500px] md:blur-[120px]"
+          aria-hidden="true"
+        ></div>
+
+        <div
+          class="about-blob absolute hidden h-64 w-64 opacity-50 md:block md:h-[500px] md:w-[500px] animate-slow-spin"
+          style="background: radial-gradient(circle, rgba(147,112,219,0.15) 0%, transparent 70%); border-radius: 45% 55% 60% 40% / 55% 45% 55% 45%;"
+          aria-hidden="true"
+        ></div>
+
+        <img
+          src="/about-me-image.png"
+          alt="EC Maceda"
+          class="relative z-10 w-full max-w-[280px] drop-shadow-[0_0_30px_rgba(147,112,219,0.4)] sm:max-w-[320px] md:max-w-[360px]"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <div class="w-full md:w-1/3">
+      <p class="text-xs font-semibold uppercase tracking-widest text-slate-400 sm:text-sm">Let's connect</p>
+      <h2 class="mt-2 text-2xl font-bold tracking-tight bg-gradient-to-r from-violet-400 via-violet-300 to-violet-500 bg-clip-text text-transparent sm:text-3xl">
+        Let's work together
+      </h2>
+      <p class="mt-4 max-w-md text-sm leading-relaxed text-slate-300 sm:text-base">
+        Have a project in mind or just want to say hi? I'd love to hear from you.
+      </p>
+      <a
+        href="#contact"
+        class="mt-6 inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-violet-600 to-violet-700 px-8 py-3 font-semibold text-white transition-all duration-300 hover:scale-105 hover:from-violet-500 hover:to-violet-600 hover:shadow-lg hover:shadow-violet-500/50"
+      >
+        <span>Get in Touch</span>
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </a>
+
+      <div class="mt-5 flex flex-row gap-4">
+        <a
+          href="https://github.com/Macedman"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub profile"
+          class="rounded-full border border-white/10 bg-white/5 p-2.5 text-slate-300 transition hover:border-violet-500/40 hover:bg-violet-500/10 hover:text-violet-400"
+        >
+          <lucide-angular [img]="github" class="h-5 w-5 text-white" />
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/eugene-clint-maceda-056535221/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn profile"
+          class="rounded-full border border-white/10 bg-white/5 p-2.5 text-slate-300 transition hover:border-violet-500/40 hover:bg-violet-500/10 hover:text-violet-400"
+        >
+          <lucide-angular [img]="linkedIn" class="h-5 w-5 text-white" />
+        </a>
+
+        <button
+          type="button"
+          (click)="copyEmail()"
+          aria-label="Copy email address"
+          class="rounded-full border border-white/10 bg-white/5 p-2.5 text-slate-300 transition hover:border-violet-500/40 hover:bg-violet-500/10 hover:text-violet-400"
+        >
+          <lucide-angular [img]="email" class="h-5 w-5 text-white" />
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,1 +1,48 @@
-<p>contact works!</p>
+<section id="contact" class="mx-4 mb-8 border border-white/10 bg-[#070B14]/80 p-6 text-white backdrop-blur-xl sm:mx-5 sm:mb-10 sm:p-8">
+  <p class="text-xs font-semibold uppercase tracking-widest text-slate-400 sm:text-sm">Contact</p>
+  <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Get in touch</h2>
+  <p class="mt-4 max-w-xl text-sm leading-relaxed text-slate-300 sm:text-base">
+    Open to freelance work, full-time roles, and collaborations. Reach out via email or connect on social media.
+  </p>
+
+  <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+    <a
+      href="mailto:ecmaceda17@gmail.com"
+      class="inline-flex items-center justify-center rounded-full bg-violet-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-violet-400"
+    >
+      ecmaceda17&#64;gmail.com
+    </a>
+    <button
+      type="button"
+      (click)="copyEmail()"
+      class="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-violet-400 hover:bg-violet-500/10"
+    >
+      Copy email
+    </button>
+  </div>
+
+  <div class="mt-8 flex flex-row gap-4">
+    <a
+      href="https://github.com/Macedman"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="GitHub profile"
+      class="rounded-xl border border-white/10 bg-white/5 p-2.5 text-slate-300 transition hover:border-violet-500/40 hover:bg-violet-500/10 hover:text-violet-400"
+    >
+      <lucide-angular [img]="github" class="h-5 w-5 text-white" />
+    </a>
+    <a
+      href="https://www.linkedin.com/in/eugene-clint-maceda-056535221/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="LinkedIn profile"
+      class="rounded-xl border border-white/10 bg-white/5 p-2.5 text-slate-300 transition hover:border-violet-500/40 hover:bg-violet-500/10 hover:text-violet-400"
+    >
+      <lucide-angular [img]="linkedIn" class="h-5 w-5 text-white" />
+    </a>
+  </div>
+
+  <p class="mt-10 border-t border-white/10 pt-6 text-sm text-slate-400">
+    &copy; 2026 Eugene Clint Maceda. All rights reserved.
+  </p>
+</section>
